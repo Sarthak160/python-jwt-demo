@@ -20,8 +20,12 @@ EXPOSE 5000
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
+ADD https://keploy-enterprise.s3.us-west-2.amazonaws.com/releases/latest/assets/freeze_time_arm64.so /lib/keploy/freeze_time_arm64.so
+RUN chmod +x /lib/keploy/freeze_time_arm64.so
+RUN ls /app/
+
 # Run app.py when the container launches
-ENV LD_PRELOAD=./freeze_time_arm64.so
+ENV LD_PRELOAD=/lib/keploy/freeze_time_arm64.so
 # CMD ["sh", "-c", "LD_PRELOAD=./freeze_time.so flask run"]
 
 CMD ["flask", "run"]

@@ -1,0 +1,44 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-1
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/register
+        header:
+            Accept: '*/*'
+            Content-Length: "49"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: curl/7.88.1
+        body: '{"username": "gouravkrosx", "password": "gkrosx"}'
+        timestamp: 2024-04-16T08:17:47.666048131Z
+    resp:
+        status_code: 409
+        header:
+            Content-Length: "34"
+            Content-Type: application/json
+            Date: Tue, 16 Apr 2024 08:17:47 GMT
+            Server: Werkzeug/3.0.2 Python/3.9.19
+        body: |
+            {"message":"User already exists"}
+        status_message: Conflict
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-04-16T08:17:49.770235815Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+    created: 1713255469
+curl: |-
+    curl --request POST \
+      --url http://localhost:5000/register \
+      --header 'Content-Type: application/json' \
+      --header 'Host: localhost:5000' \
+      --header 'User-Agent: curl/7.88.1' \
+      --header 'Accept: */*' \
+      --data '{"username": "gouravkrosx", "password": "gkrosx"}'

@@ -1,0 +1,46 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-1
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/register
+        header:
+            Accept: '*/*'
+            Content-Length: "49"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: curl/7.88.1
+        body: '{"username": "gouravkrosx", "password": "gkrosx"}'
+        timestamp: 2024-03-26T12:45:39.471028382Z
+    resp:
+        status_code: 201
+        header:
+            Content-Length: "48"
+            Content-Type: application/json
+            Date: Tue, 26 Mar 2024 12:45:39 GMT
+            Server: Werkzeug/3.0.1 Python/3.11.2
+        body: |
+            {
+              "message": "User registered successfully"
+            }
+        status_message: Created
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-03-26T12:45:41.582074031Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+    created: 1711457141
+curl: |-
+    curl --request POST \
+      --url http://localhost:5000/register \
+      --header 'User-Agent: curl/7.88.1' \
+      --header 'Accept: */*' \
+      --header 'Content-Type: application/json' \
+      --header 'Host: localhost:5000' \
+      --data '{"username": "gouravkrosx", "password": "gkrosx"}'

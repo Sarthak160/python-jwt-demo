@@ -1,0 +1,44 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-2
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/login
+        header:
+            Accept: '*/*'
+            Content-Length: "49"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: curl/7.88.1
+        body: '{"username": "gouravkrosx", "password": "gkrosx"}'
+        timestamp: 2024-04-16T08:17:53.382548375Z
+    resp:
+        status_code: 200
+        header:
+            Content-Length: "168"
+            Content-Type: application/json
+            Date: Tue, 16 Apr 2024 08:17:53 GMT
+            Server: Werkzeug/3.0.2 Python/3.9.19
+        body: |
+            {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYwMmMzNzMwYmU3NDJiNjg2YzJkZjMzIiwiZXhwIjoxNzEzMjU1NzczfQ.0veaFbcnOqR8z38Wkcw3iC9NdJcBplc3L2hUb-yBx7A"}
+        status_message: OK
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-04-16T08:17:55.494339603Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+    created: 1713255475
+curl: |-
+    curl --request POST \
+      --url http://localhost:5000/login \
+      --header 'Content-Type: application/json' \
+      --header 'Host: localhost:5000' \
+      --header 'User-Agent: curl/7.88.1' \
+      --header 'Accept: */*' \
+      --data '{"username": "gouravkrosx", "password": "gkrosx"}'

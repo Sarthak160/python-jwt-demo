@@ -1,0 +1,49 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-5
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/item
+        header:
+            Accept: '*/*'
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYwMmMzNzMwYmU3NDJiNjg2YzJkZjMzIiwiZXhwIjoxNzExNDU3NDQ2fQ.4HmOCfx6aBkHAq_-sBVwPKhGmNBN_7-ZWGTxTOKk2gc
+            Content-Length: "51"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: curl/7.88.1
+        body: '{"name": "Item Name", "description": "Description"}'
+        timestamp: 2024-03-26T12:46:40.473942077Z
+    resp:
+        status_code: 201
+        header:
+            Content-Length: "66"
+            Content-Type: application/json
+            Date: Tue, 26 Mar 2024 12:46:40 GMT
+            Server: Werkzeug/3.0.1 Python/3.11.2
+        body: |
+            {
+              "id": "6602c3b00be742b686c2df34",
+              "message": "Item added"
+            }
+        status_message: Created
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-03-26T12:46:42.57680947Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+    created: 1711457202
+curl: |-
+    curl --request POST \
+      --url http://localhost:5000/item \
+      --header 'User-Agent: curl/7.88.1' \
+      --header 'Accept: */*' \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYwMmMzNzMwYmU3NDJiNjg2YzJkZjMzIiwiZXhwIjoxNzExNDU3NDQ2fQ.4HmOCfx6aBkHAq_-sBVwPKhGmNBN_7-ZWGTxTOKk2gc' \
+      --header 'Content-Type: application/json' \
+      --header 'Host: localhost:5000' \
+      --data '{"name": "Item Name", "description": "Description"}'

@@ -1,0 +1,41 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-5
+spec:
+    metadata: {}
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/item/661e346256a4f4c874c2c587
+        header:
+            Accept: '*/*'
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYwMmMzNzMwYmU3NDJiNjg2YzJkZjMzIiwiZXhwIjoxNzEzMjU1NzczfQ.0veaFbcnOqR8z38Wkcw3iC9NdJcBplc3L2hUb-yBx7A
+            Host: localhost:5000
+            User-Agent: curl/7.88.1
+        body: ""
+        timestamp: 2024-04-16T08:19:06.377825264Z
+    resp:
+        status_code: 200
+        header:
+            Content-Length: "96"
+            Content-Type: text/html; charset=utf-8
+            Date: Tue, 16 Apr 2024 08:19:06 GMT
+            Server: Werkzeug/3.0.2 Python/3.9.19
+        body: '{"_id": {"$oid": "661e346256a4f4c874c2c587"}, "name": "Item Name", "description": "Description"}'
+        status_message: OK
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-04-16T08:19:08.446194387Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+    created: 1713255548
+curl: |
+    curl --request GET \
+      --url http://localhost:5000/item/661e346256a4f4c874c2c587 \
+      --header 'Host: localhost:5000' \
+      --header 'User-Agent: curl/7.88.1' \
+      --header 'Accept: */*' \
+      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYwMmMzNzMwYmU3NDJiNjg2YzJkZjMzIiwiZXhwIjoxNzEzMjU1NzczfQ.0veaFbcnOqR8z38Wkcw3iC9NdJcBplc3L2hUb-yBx7A' \
